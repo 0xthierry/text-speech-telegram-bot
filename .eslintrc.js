@@ -22,5 +22,25 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 'error',
+    'no-unused-vars': 'off',
+    'import/prefer-default-export': 'off',
+    'consistent-return': 'off',
+    "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+    ]
+  },
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
 };

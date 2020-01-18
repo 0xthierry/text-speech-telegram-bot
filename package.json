@@ -7,14 +7,17 @@
   "repository": "git@github.com:thierrysantos/text-speech-telegram-bot.git",
   "scripts": {
     "start": "node dist/index.js",
-    "start:debug": "concurrently -n tsc,nodemon -i --default-input-target nodemon \"tsc -w\" \"nodemon --inspect dist/index.js\"",
+    "start:debug": "concurrently -n tsc,nodemon -i --default-input-target nodemon \"tsc -w\" \"nodemon dist/index.js\"",
     "build": "tsc"
   },
   "dependencies": {
+    "@google-cloud/text-to-speech": "^2.1.2",
     "@types/node": "^13.1.8",
+    "dotenv": "^8.2.0",
     "telegraf": "^3.35.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "concurrently": "^5.0.2",
