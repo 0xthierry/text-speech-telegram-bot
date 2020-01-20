@@ -15,7 +15,7 @@ async function fromTextToSpeech(text: string) {
 			name: 'pt-BR-Standard-A',
 		},
 		audioConfig: {
-			// MP3
+			// OGG
 			audioEncoding: 3,
 		},
 	};

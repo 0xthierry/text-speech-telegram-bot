@@ -3,13 +3,13 @@ import { ContextMessageUpdate } from 'telegraf';
 import { fromTextToSpeech } from '../data/repositories';
 
 function factory() {
-	return async (ctx: ContextMessageUpdate) => {
+	return async function handler(ctx: ContextMessageUpdate) {
 		try {
 			const source = await fromTextToSpeech(ctx.message?.text ?? '');
 			await ctx.replyWithVoice(
 				{ source },
 				{
-					caption: 'From audio to text',
+					caption: 'From text to audio',
 					reply_to_message_id: ctx.message?.message_id,
 				}
 			);

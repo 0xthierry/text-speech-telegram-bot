@@ -11,6 +11,8 @@ export default async function app(bot: Telegraf<ContextMessageUpdate>) {
 	 * Handlers
 	 */
 	bot.on('text', handlers.text.factory());
+	bot.on('voice', handlers.audio.factory());
+	// bot.on('audio', handlers.audio.factory());
 
 	return bot;
 }

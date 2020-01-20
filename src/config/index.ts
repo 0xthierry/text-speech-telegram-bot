@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export type ApplicationConfig = {
 	telegram: {
 		token: string;
@@ -17,3 +19,7 @@ export const ApplicationConfig: ApplicationConfig = {
 		credentialsPath: process.env.GOOGLE_APPLICATION_CREDENTIALS ?? '',
 	},
 };
+
+export const api = axios.create({
+	baseURL: 'https://api.telegram.org',
+});

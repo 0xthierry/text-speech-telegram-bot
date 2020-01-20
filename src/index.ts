@@ -5,8 +5,11 @@ import { ApplicationConfig } from './config';
 import app from './app';
 
 dotenv.config();
-
-app(new Telegraf(ApplicationConfig.telegram.token))
-	.then(bot => bot.launch())
-	.then(() => console.log('Started'))
-	.catch(console.error);
+const bot = new Telegraf(ApplicationConfig.telegram.token);
+app(bot)
+	.then(() => bot.launch())
+	.then(() => console.log('Running...'))
+	.catch(e => {
+		console.error(e);
+		process.exit(1);
+	});
