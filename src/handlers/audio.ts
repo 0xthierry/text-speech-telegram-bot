@@ -14,6 +14,7 @@ function factory() {
 				reply_to_message_id: ctx.message?.message_id,
 			});
 		} catch (error) {
+			console.error(error);
 			return ctx.reply('An error ocurrs when try to convert audio to text');
 		}
 	};
