@@ -7,12 +7,12 @@
   "repository": "git@github.com:thierrysantos/text-speech-telegram-bot.git",
   "scripts": {
     "start": "node dist/index.js",
-    "start:debug": "concurrently -n tsc,nodemon -i --default-input-target nodemon \"tsc -w\" \"nodemon dist/index.js\"",
+    "dev": "concurrently -n tsc,nodemon -i --default-input-target nodemon \"tsc -w\" \"nodemon dist/index.js\"",
     "build": "tsc"
   },
   "dependencies": {
     "@google-cloud/text-to-speech": "^2.1.2",
-    "@types/node": "^13.1.8",
+    "@types/node": "^14.0.1",
     "dotenv": "^8.2.0",
     "telegraf": "^3.35.0"
   },
@@ -21,15 +21,19 @@
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "concurrently": "^5.0.2",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.9.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.10",
-    "lint-staged": "^9.5.0",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
     "nodemon": "^2.0.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.5.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.7.5"
   }
 }
