@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
 import Telegraf from 'telegraf';
-import dotenv from 'dotenv';
 import { ApplicationConfig } from './config';
 import app from './app';
 
-dotenv.config();
+const telegraf = new Telegraf(ApplicationConfig.telegram.token);
+const bot = app(telegraf);
 
-app(new Telegraf(ApplicationConfig.telegram.token))
-	.then(bot => bot.launch())
-	.then(() => console.log('Started'))
-	.catch(console.error);
+bot
+  .launch()
+  .then(() => console.log('Running...'))
+  .catch(e => {
+    console.error(e);
+  });
