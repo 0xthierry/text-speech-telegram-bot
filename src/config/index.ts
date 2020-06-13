@@ -1,7 +1,11 @@
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import axios from 'axios';
-import dotenv from 'dotenv';
 
-dotenv.config();
+if (process.env.NODE_ENV === 'development') {
+  const dotenv = require('dotenv');
+  dotenv.config();
+}
 
 export type ApplicationConfig = {
   telegram: {

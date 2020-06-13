@@ -1,4 +1,5 @@
-/* eslint-disable camelcase */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import { ContextMessageUpdate } from 'telegraf';
 import { DownloadAudio, FromSpeechToText } from '../data/repositories/types';
 

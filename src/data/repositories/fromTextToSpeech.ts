@@ -21,7 +21,7 @@ async function fromTextToSpeech(text: string): Promise<Buffer> {
   };
   const [response] = await client.synthesizeSpeech(request);
 
-  if (response.audioContent?.buffer) {
+  if (response.audioContent) {
     const buffer = Buffer.from(response.audioContent);
     return buffer;
   }

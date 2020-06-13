@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
 import { Telegraf, ContextMessageUpdate } from 'telegraf';
 import * as repositories from './data/repositories';
 import * as handlers from './handlers';

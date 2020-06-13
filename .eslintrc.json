@@ -23,6 +23,7 @@
   "rules": {
     "prettier/prettier": "error",
     "import/prefer-default-export": 0,
+    "camelcase": 0,
     "class-methods-use-this": 0,
     "@typescript-eslint/camelcase": 0,
     "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}],

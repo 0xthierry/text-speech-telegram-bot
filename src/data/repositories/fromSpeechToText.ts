@@ -1,7 +1,4 @@
 import { SpeechClient } from '@google-cloud/speech';
-import fs from 'fs';
-import path from 'path';
-import { v4 as uuid } from 'uuid';
 import { ApplicationConfig } from '../../config';
 
 async function fromSpeechToText(buffer: Buffer): Promise<string | undefined> {
@@ -9,37 +6,24 @@ async function fromSpeechToText(buffer: Buffer): Promise<string | undefined> {
     projectId: ApplicationConfig.gcp.projectId,
     keyFilename: ApplicationConfig.gcp.credentialsPath,
   });
-  const fullPath = `${path.resolve(
-    __dirname,
-    '..',
-    '..',
-    '..',
-    'tmp',
-  )}/commercial_stereo.wav`;
-  const writeFile = fs.writeFileSync(
-    `${path.resolve(__dirname, '..', '..', '..', 'tmp', uuid())}.ogg`,
-    buffer,
-  );
-  const file = fs.readFileSync(fullPath);
-  const audioBytes = file.toString('base64');
   const request = {
     audio: {
-      content: file,
+      content: buffer,
     },
     config: {
       // OGG
-      encoding: 1,
-      languageCode: `en-US`,
-      audioChannelCount: 2,
+      encoding: 6,
+      languageCode: 'pt-br',
+      sampleRateHertz: 16000,
     },
   };
   const [response] = await client.recognize(request);
-
   return response.results
     ?.map(result => {
-      if (result?.alternatives) {
+      if (result?.alternatives?.length) {
         return result?.alternatives[0]?.transcript;
       }
+      return [];
     })
     .join('\n');
 }
