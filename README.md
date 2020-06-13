@@ -1,6 +1,6 @@
-# Telegram Bot TextSpeech [WIP]
+# Telegram Bot TextSpeech
 
-> Telegram bot that convert Text to Speech and Speech to Text 
+> Telegram bot that convert Text to Speech and Speech to Text
 
 ## Summary :memo:
 
@@ -48,6 +48,8 @@ Start project
 yarn dev
 # or
 npm run dev
+# or
+docker-compose up
 ```
 
 ## Demo :clipboard:
