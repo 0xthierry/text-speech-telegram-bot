@@ -1,7 +1,7 @@
 import { TextToSpeechClient } from '@google-cloud/text-to-speech';
 import { ApplicationConfig } from '../../config';
 
-async function fromTextToSpeech(text: string) {
+async function fromTextToSpeech(text: string): Promise<Buffer> {
 	const client = new TextToSpeechClient({
 		projectId: ApplicationConfig.gcp.projectId,
 		keyFilename: ApplicationConfig.gcp.credentialsPath,

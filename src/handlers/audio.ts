@@ -1,8 +1,11 @@
 /* eslint-disable camelcase */
 import { ContextMessageUpdate } from 'telegraf';
-import { fromSpeechToText, downloadAudio } from '../data/repositories';
+import { DownloadAudio, FromSpeechToText } from '../data/repositories/types';
 
-function factory() {
+function factory(
+	fromSpeechToText: FromSpeechToText,
+	downloadAudio: DownloadAudio
+) {
 	return async function handler(ctx: ContextMessageUpdate) {
 		try {
 			const file = await ctx.telegram.getFileLink(
@@ -14,7 +17,6 @@ function factory() {
 				reply_to_message_id: ctx.message?.message_id,
 			});
 		} catch (error) {
-			console.error(error);
 			return ctx.reply('An error ocurrs when try to convert audio to text');
 		}
 	};

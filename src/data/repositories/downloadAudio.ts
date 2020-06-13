@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { api } from '../../config';
 
 async function downloadAudio(link: string): Promise<Buffer> {

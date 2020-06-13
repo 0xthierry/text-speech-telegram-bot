@@ -4,7 +4,7 @@ import path from 'path';
 import { v4 as uuid } from 'uuid';
 import { ApplicationConfig } from '../../config';
 
-async function fromSpeechToText(buffer: Buffer) {
+async function fromSpeechToText(buffer: Buffer): Promise<string | undefined> {
 	const client = new SpeechClient({
 		projectId: ApplicationConfig.gcp.projectId,
 		keyFilename: ApplicationConfig.gcp.credentialsPath,
@@ -31,8 +31,6 @@ async function fromSpeechToText(buffer: Buffer) {
 		},
 	};
 	const [response] = await client.recognize(request);
-
-	console.log(response);
 
 	return response.results
 		?.map(result => {

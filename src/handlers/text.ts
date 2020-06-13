@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import { ContextMessageUpdate } from 'telegraf';
-import { fromTextToSpeech } from '../data/repositories';
+import { FromTextToSpeech } from '../data/repositories/types';
 
-function factory() {
+function factory(fromTextToSpeech: FromTextToSpeech) {
 	return async function handler(ctx: ContextMessageUpdate) {
 		try {
-			const source = await fromTextToSpeech(ctx.message?.text ?? '');
+			const source = await fromTextToSpeech(ctx.message?.text || '');
 			await ctx.replyWithVoice(
 				{ source },
 				{
