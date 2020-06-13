@@ -6,12 +6,14 @@ COPY package.json yarn.lock ./
 COPY tsconfig.json ./
 RUN yarn --silent
 
+FROM node:12-alpine AS base
+WORKDIR /usr/app/src
+COPY --from=dependencies /usr/app/src/ ./
+COPY src ./src
 
 FROM node:12-alpine AS release
 WORKDIR /usr/app/src
 ENV NODE_ENV=production
-COPY --from=dependencies /usr/app/src/ ./
-RUN ls
-COPY src ./src
+COPY --from=base /usr/app/src/ ./
 RUN yarn build
 CMD yarn start

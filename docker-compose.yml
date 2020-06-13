@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  server:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+      target: base
+    command: yarn dev
+    ports:
+      - 9229:9229
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+      - GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
+    volumes:
+      - .:/usr/app/src
+      - /usr/app/src/node_modules
+    restart: always
