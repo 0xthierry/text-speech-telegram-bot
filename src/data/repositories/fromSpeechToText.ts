@@ -5,40 +5,43 @@ import { v4 as uuid } from 'uuid';
 import { ApplicationConfig } from '../../config';
 
 async function fromSpeechToText(buffer: Buffer): Promise<string | undefined> {
-	const client = new SpeechClient({
-		projectId: ApplicationConfig.gcp.projectId,
-		keyFilename: ApplicationConfig.gcp.credentialsPath,
-	});
-	const fullPath = `${path.resolve(
-		__dirname,
-		'..',
-		'..',
-		'..',
-		'tmp'
-	)}/commercial_stereo.wav`;
-	// const writeFile = fs.writeFileSync(fullPath, buffer);
-	const file = fs.readFileSync(fullPath);
-	const audioBytes = file.toString('base64');
-	const request = {
-		audio: {
-			content: file,
-		},
-		config: {
-			// OGG
-			encoding: 1,
-			languageCode: `en-US`,
-			audioChannelCount: 2,
-		},
-	};
-	const [response] = await client.recognize(request);
+  const client = new SpeechClient({
+    projectId: ApplicationConfig.gcp.projectId,
+    keyFilename: ApplicationConfig.gcp.credentialsPath,
+  });
+  const fullPath = `${path.resolve(
+    __dirname,
+    '..',
+    '..',
+    '..',
+    'tmp',
+  )}/commercial_stereo.wav`;
+  const writeFile = fs.writeFileSync(
+    `${path.resolve(__dirname, '..', '..', '..', 'tmp', uuid())}.ogg`,
+    buffer,
+  );
+  const file = fs.readFileSync(fullPath);
+  const audioBytes = file.toString('base64');
+  const request = {
+    audio: {
+      content: file,
+    },
+    config: {
+      // OGG
+      encoding: 1,
+      languageCode: `en-US`,
+      audioChannelCount: 2,
+    },
+  };
+  const [response] = await client.recognize(request);
 
-	return response.results
-		?.map(result => {
-			if (result?.alternatives) {
-				return result?.alternatives[0]?.transcript;
-			}
-		})
-		.join('\n');
+  return response.results
+    ?.map(result => {
+      if (result?.alternatives) {
+        return result?.alternatives[0]?.transcript;
+      }
+    })
+    .join('\n');
 }
 
 export { fromSpeechToText };

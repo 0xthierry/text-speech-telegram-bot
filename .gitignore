@@ -5,4 +5,7 @@ vscode/*
 !vscode/tasks.json
 !vscode/launch.json
 *.tsbuildinfo
-tmp/*
+tmp/
+!tmp/.gitkeep
+.vscode
+yarn-error.log
