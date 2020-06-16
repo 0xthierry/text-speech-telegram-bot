@@ -54,7 +54,11 @@ docker-compose up
 
 ## Demo :clipboard:
 
-TODO
+<p align="center">
+<img src="https://ibb.co/6y5cP2M"
+    alt="Bot demo"
+/>
+</p>
 
 
 ## Built With :gem:
