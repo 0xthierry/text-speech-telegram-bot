@@ -55,7 +55,7 @@ docker-compose up
 ## Demo :clipboard:
 
 <p align="center">
-<img src="https://ibb.co/6y5cP2M"
+<img src="https://i.ibb.co/0n3pMk7/Whats-App-Image-2020-06-15-at-21-32-16.jpg"
     alt="Bot demo"
 />
 </p>
