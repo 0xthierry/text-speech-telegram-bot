@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
-import { ApplicationConfig } from '../../../../config';
-import { IStoreRepository } from '../../../providers/Storage/IStorage';
+import { ApplicationConfig } from 'config';
+import { IStoreRepository } from 'shared/providers/Storage/IStorage';
 
 AWS.config.update({
   apiVersion: '2006-03-01',

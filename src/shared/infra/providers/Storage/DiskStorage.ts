@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { ApplicationConfig } from '../../../../config';
-import { IStoreRepository } from '../../../providers/Storage/IStorage';
+import { ApplicationConfig } from 'config';
+import { IStoreRepository } from 'shared/providers/Storage/IStorage';
 
 export const store: IStoreRepository = async ({buffer, filename}) => {
   const filePath = `${ApplicationConfig.storagePath}/${filename}`;

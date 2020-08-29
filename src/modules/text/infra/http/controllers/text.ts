@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import makeToSpeech from '../../../services/toSpeechLink';
+import makeToSpeech from 'modules/text/services/toSpeechLink';
 import { speechRepository } from '../../repositories/SpeechRepository';
-import { store as storeAudio } from '../../../../../shared/infra/providers/Storage';
+import { store as storeAudio } from 'shared/infra/providers/Storage';
 
 const toSpeech = makeToSpeech(speechRepository, storeAudio);
 

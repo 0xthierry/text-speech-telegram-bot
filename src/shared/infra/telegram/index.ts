@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import Telegraf from 'telegraf';
-import { ApplicationConfig } from '../../../config';
+import { ApplicationConfig } from 'config';
 import app from './app';
 import { logger } from '../providers/Logger';
 

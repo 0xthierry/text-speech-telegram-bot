@@ -4,11 +4,29 @@ services:
     build:
       context: .
       args:
-        - NODE_ENV=development
+        - NODE_ENV=${NODE_ENV}
       target: base
-    command: yarn dev
+    command: yarn api:dev
     ports:
-      - 9229:9229
+      - 3333:3333
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
+      - GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
+      - SERVER_URL=${SERVER_URL}
+      - AWS_SECRET_KEY=${AWS_SECRET_KEY}
+      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
+      - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
+    volumes:
+      - .:/usr/app/src
+      - /usr/app/src/node_modules
+    restart: always
+  bot:
+    build:
+      context: .
+      args:
+        - NODE_ENV=${NODE_ENV}
+      target: base
+    command: yarn bot:dev
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS}
