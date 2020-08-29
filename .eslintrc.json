@@ -26,11 +26,7 @@
     "camelcase": 0,
     "class-methods-use-this": 0,
     "@typescript-eslint/camelcase": 0,
-    "@typescript-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}],
     "no-useless-constructor": 0,
-    "@typescript-eslint/no-unused-vars": ["error", {
-      "argsIgnorePattern": "_"
-    }],
     "import/extensions": [
       "error",
       "ignorePackages",
