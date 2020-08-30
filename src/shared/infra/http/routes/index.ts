@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-import textRoutes from 'modules/text/infra/http/routes/text.routes';
+import textRoutes from '@modules/text/infra/http/routes/text.routes';
 
 const routes = Router();
 

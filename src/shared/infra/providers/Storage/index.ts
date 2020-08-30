@@ -1,4 +1,4 @@
-import { ApplicationConfig } from 'config';
+import { ApplicationConfig } from '@config/env';
 import * as DiskStorage from './DiskStorage';
 import * as S3Storage from './S3Storage';
 

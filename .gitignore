@@ -9,3 +9,4 @@ tmp/
 !tmp/.gitkeep
 .vscode
 yarn-error.log
+coverage

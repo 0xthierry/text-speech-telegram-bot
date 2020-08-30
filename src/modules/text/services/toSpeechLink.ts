@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import { ISpeechRepository } from '../repositories/SpeechRepository/ISpeechRepository';
 import convertToABuffer from './convertToBuffer';
-import { IStoreRepository } from 'shared/providers/Storage/IStorage';
+import { IStoreRepository } from '@shared/providers/Storage/IStorage';
 
 const ONE_HOUR = 1000 * 60 * 60;
 

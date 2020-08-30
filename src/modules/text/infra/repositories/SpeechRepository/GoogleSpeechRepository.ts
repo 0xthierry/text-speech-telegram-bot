@@ -1,6 +1,6 @@
 import { TextToSpeechClient } from '@google-cloud/text-to-speech';
-import { ApplicationConfig } from 'config';
-import { ISpeechRepository } from 'modules/text/repositories/SpeechRepository/ISpeechRepository';
+import { ApplicationConfig } from '@config/env';
+import { ISpeechRepository } from '@modules/text/repositories/SpeechRepository/ISpeechRepository';
 
 export const googleSpeechRepository: ISpeechRepository = async options => {
   const client = new TextToSpeechClient({

@@ -8,3 +8,11 @@ type IStoreRepositoryRequest = {
 export type IStoreRepository = (
   request: IStoreRepositoryRequest,
 ) => Promise<string>;
+
+type IGetRepositoryRequest = {
+  path: string;
+};
+
+export type IGetRepository = (
+  request: IGetRepositoryRequest,
+) => Promise<Buffer>;

@@ -1,6 +1,6 @@
 import { ifElse, is } from 'rambda';
 import { ISpeechRepositoryResponse } from '../repositories/SpeechRepository/ISpeechRepository';
-import AppError from 'shared/errors/AppError';
+import AppError from '@shared/errors/AppError';
 
 const convertToABuffer = ifElse<ISpeechRepositoryResponse, Buffer>(
   audio => is(String, audio) || is(Uint8Array, audio),

@@ -3,9 +3,9 @@
 import { ContextMessageUpdate } from 'telegraf';
 import { tryCatch } from 'rambda';
 import { speechRepository } from '../../repositories/SpeechRepository';
-import { logger } from 'shared/infra/providers/Logger';
+import { logger } from '@shared/infra/providers/Logger';
 
-import makeToSpeech from 'modules/text/services/toSpeechBuffer';
+import makeToSpeech from '@modules/text/services/toSpeechBuffer';
 
 const toSpeech = makeToSpeech(speechRepository);
 

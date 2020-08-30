@@ -1,6 +1,5 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import axios from 'axios';
 import { resolve } from 'path';
 
 if (process.env.NODE_ENV === 'development') {
@@ -54,6 +53,3 @@ export const ApplicationConfig: ApplicationConfig = {
   env: process.env.NODE_ENV ?? 'development',
 };
 
-export const api = axios.create({
-  baseURL: 'https://api.telegram.org',
-});
