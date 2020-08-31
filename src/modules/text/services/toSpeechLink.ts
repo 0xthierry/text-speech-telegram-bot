@@ -3,8 +3,6 @@ import { ISpeechRepository } from '../repositories/SpeechRepository/ISpeechRepos
 import convertToABuffer from './convertToBuffer';
 import { IStoreRepository } from '@shared/providers/Storage/IStorage';
 
-const ONE_HOUR = 1000 * 60 * 60;
-
 const toSpeechLink = (
   speechRepository: ISpeechRepository,
   storageStoreRepository: IStoreRepository,
@@ -26,7 +24,6 @@ const toSpeechLink = (
     buffer,
     filename: `${uuid()}.mp3`,
     isPublic: true,
-    expiresIn: new Date(Date.now() + ONE_HOUR),
   });
 
   return path;

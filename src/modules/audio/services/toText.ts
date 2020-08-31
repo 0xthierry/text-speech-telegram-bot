@@ -3,9 +3,9 @@ import { IGetRepository } from '@shared/providers/Storage/IStorage';
 
 const toText = (
   textRepository: ITextRepository,
-  getAudioFile: IGetRepository,
+  getAudioContent: IGetRepository,
 ) => async (filePath: string) => {
-  const buffer = await getAudioFile({ path: filePath });
+  const buffer = await getAudioContent({ path: filePath });
 
   const response = await textRepository({
     audio: {

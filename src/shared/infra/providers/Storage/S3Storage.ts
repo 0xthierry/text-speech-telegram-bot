@@ -1,15 +1,9 @@
 import AWS from 'aws-sdk';
 import { ApplicationConfig } from '@config/env';
-import { IStoreRepository } from '@shared/providers/Storage/IStorage';
-
-AWS.config.update({
-  apiVersion: '2006-03-01',
-  region: 'us-west-2',
-  credentials: {
-    accessKeyId: ApplicationConfig.aws.accessKeyId,
-    secretAccessKey: ApplicationConfig.aws.secretAccessKey,
-  },
-});
+import {
+  IStoreRepository,
+  IGetRepository,
+} from '@shared/providers/Storage/IStorage';
 
 export const store: IStoreRepository = async ({
   buffer,
@@ -32,4 +26,17 @@ export const store: IStoreRepository = async ({
     .promise();
 
   return response.Location;
+};
+
+export const get: IGetRepository = async ({ path }) => {
+  const s3 = new AWS.S3();
+
+  const response = await s3
+    .getObject({
+      Key: path,
+      Bucket: ApplicationConfig.aws.bucket.name,
+    })
+    .promise();
+
+  return response.Body as Buffer;
 };

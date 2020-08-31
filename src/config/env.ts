@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { resolve } from 'path';
+import AWS from 'aws-sdk';
 
 if (process.env.NODE_ENV === 'development') {
   const dotenv = require('dotenv');
@@ -53,3 +54,11 @@ export const ApplicationConfig: ApplicationConfig = {
   env: process.env.NODE_ENV ?? 'development',
 };
 
+AWS.config.update({
+  apiVersion: '2006-03-01',
+  region: 'us-west-2',
+  credentials: {
+    accessKeyId: ApplicationConfig.aws.accessKeyId,
+    secretAccessKey: ApplicationConfig.aws.secretAccessKey,
+  },
+});
